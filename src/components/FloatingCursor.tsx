@@ -5,12 +5,28 @@ export default function FloatingCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   const [isPointer, setIsPointer] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const springConfig = { damping: 25, stiffness: 700 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
+  // Check if device is mobile
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    // Skip cursor effects on mobile devices
+    if (isMobile) return;
+    
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX - 16);
       cursorY.set(e.clientY - 16);
@@ -28,11 +44,14 @@ export default function FloatingCursor() {
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mouseover', updateCursorType);
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, isMobile]);
+
+  // Don't render the cursor on mobile devices
+  if (isMobile) return null;
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-8 h-8 pointer-events-none mix-blend-difference z-[9999]"
+      className="fixed top-0 left-0 w-8 h-8 pointer-events-none mix-blend-difference z-[9999] hidden md:block"
       style={{
         x: cursorXSpring,
         y: cursorYSpring,

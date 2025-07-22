@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Header from './Header';
 import ParallaxBackground from './ParallaxBackground';
 import FloatingElements from './FloatingElements';
 import FloatingCursor from './FloatingCursor';
 import { portfolioConfig } from '../config/portfolio';
-import { Download, Github } from 'lucide-react';
+import { Download, Github as GithubIcon } from 'lucide-react';
 
 export default function ToolsProjects() {
   const [isDark, setIsDark] = useState(false);
@@ -73,12 +73,12 @@ export default function ToolsProjects() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="bg-white dark:bg-zinc-900 rounded-xl shadow-xl overflow-hidden"
               >
-                <div className="p-8 flex flex-col md:flex-row items-center justify-between">
-                  <div className="mb-6 md:mb-0">
-                    <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                <div className="p-4 sm:p-8 flex flex-col md:flex-row items-center justify-between">
+                  <div className="mb-6 md:mb-0 text-center md:text-left">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-2">
                       Kiro IDE
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-2xl">
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-2xl text-sm sm:text-base">
                       A powerful integrated development environment designed to enhance your coding experience with advanced features and intuitive interface.
                     </p>
                   </div>
@@ -86,12 +86,12 @@ export default function ToolsProjects() {
                   <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    href="https://drive.google.com/file/d/10tbFyIJ5aYVwShnThn7dKh75BMXmI21m/view?usp=sharing" // Replace with your actual Google Drive link
+                    href="https://drive.google.com/file/d/10tbFyIJ5aYVwShnThn7dKh75BMXmI21m/view?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all"
+                    className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all text-sm sm:text-base"
                   >
-                    <Download className="w-5 h-5 mr-2" />
+                    <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                     Download
                   </motion.a>
                 </div>
@@ -110,12 +110,12 @@ export default function ToolsProjects() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="bg-white dark:bg-zinc-900 rounded-xl shadow-xl overflow-hidden"
               >
-                <div className="p-8 flex flex-col md:flex-row items-center justify-between">
-                  <div className="mb-6 md:mb-0">
-                    <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                <div className="p-4 sm:p-8 flex flex-col md:flex-row items-center justify-between">
+                  <div className="mb-6 md:mb-0 text-center md:text-left">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-2">
                       Virtual Mouse Project
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-2xl">
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-2xl text-sm sm:text-base">
                       A computer vision-based project that allows users to control their mouse cursor using hand gestures, providing an innovative way to interact with computers.
                     </p>
                   </div>
@@ -123,12 +123,12 @@ export default function ToolsProjects() {
                   <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    href="https://github.com/shrixtacy/Virtual-Mouse" // Replace with your actual GitHub repo link
+                    href="https://github.com/shrixtacy/Virtual-Mouse"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-pink-500 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all"
+                    className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-500 to-pink-500 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all text-sm sm:text-base"
                   >
-                    <Github className="w-5 h-5 mr-2" />
+                    <GithubIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                     Access Project
                   </motion.a>
                 </div>
