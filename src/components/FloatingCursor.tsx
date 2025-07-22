@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function FloatingCursor() {
@@ -32,7 +32,7 @@ export default function FloatingCursor() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-8 h-8 pointer-events-none z-50 mix-blend-difference"
+      className="fixed top-0 left-0 w-8 h-8 pointer-events-none mix-blend-difference z-[9999]"
       style={{
         x: cursorXSpring,
         y: cursorYSpring,
